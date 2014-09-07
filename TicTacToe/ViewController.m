@@ -45,20 +45,26 @@
 }
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGestureRecognizer{
+    //creating a point tapped on the label
     CGPoint tapped = [tapGestureRecognizer locationInView:self.view];
 
-   self.activeLabel = [self findLabelUsingPoint:tapped];
+    //activeLabel is the label that was tapped
+    self.activeLabel = [self findLabelUsingPoint:tapped];
+
     [self whoseTurn];
+    [self gameLogic];
 
     //Displays the coordinates of the label tapped
     //NSLog(@"x: %f   y:%f", tapped.x, tapped.y);
-
-
 }
 
+
+//Changes the players turn
 -(void)whoseTurn{
     //1 = X : 2 = Y
 
+    //if the label is not empty than dont change anything, else change the labels text
+    //to the appropriate player
     if (![self.activeLabel.text isEqual: @""]) {
         return;
     }else{
@@ -71,12 +77,38 @@
             self.activeLabel.text = @"O";
             self.whichPlayerLabel.text = @"Player X Turn";
             self.whoseTurnIsIt--;
-            
         }
+    }
+}
 
+-(void)gameLogic{
+
+    //Left to Right Wins from top to bottom
+    if ([self.labelOne.text isEqualToString:self.labelTwo.text] && [self.labelTwo.text isEqualToString:self.labelThree.text] && ![self.labelOne.text isEqualToString:@""]) {
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
+    if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    //Top To Bottom wins from left to right
+
+    if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    //3rd row down 
 }
+
 
 @end
 
