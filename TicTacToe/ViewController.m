@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelSeven;
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
+@property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property NSArray *labels;
 
 @end
 
@@ -25,8 +27,51 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.labels = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
+
 }
 
+-(UILabel *)findLabelUsingPoint:(CGPoint)point{
+    for (UILabel *label in self.labels) {
+        if (CGRectContainsPoint(label.frame, point)) {
+            return label;
+        }
+    }
+
+    return nil;
+}
+
+-(IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGestureRecognizer{
+    CGPoint tapped = [tapGestureRecognizer locationInView:self.view];
+
+    [self findLabelUsingPoint:tapped];
+    NSLog(@"x: %f   y:%f", tapped.x, tapped.y);
+
+
+}
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
