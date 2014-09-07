@@ -19,8 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property (weak, nonatomic) UILabel *activeLabel;
 @property NSArray *labels;
-
+@property int whoseTurnIsIt;
 @end
 
 @implementation ViewController
@@ -30,6 +31,7 @@
 
     self.labels = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
 
+    self.whoseTurnIsIt = 1;
 }
 
 -(UILabel *)findLabelUsingPoint:(CGPoint)point{
@@ -45,9 +47,34 @@
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGestureRecognizer{
     CGPoint tapped = [tapGestureRecognizer locationInView:self.view];
 
-    [self findLabelUsingPoint:tapped];
-    NSLog(@"x: %f   y:%f", tapped.x, tapped.y);
+   self.activeLabel = [self findLabelUsingPoint:tapped];
+    [self whoseTurn];
 
+    //Displays the coordinates of the label tapped
+    //NSLog(@"x: %f   y:%f", tapped.x, tapped.y);
+
+
+}
+
+-(void)whoseTurn{
+    //1 = X : 2 = Y
+
+    if (![self.activeLabel.text isEqual: @""]) {
+        return;
+    }else{
+        if (self.whoseTurnIsIt == 1) {
+            self.activeLabel.text = @"X";
+            self.whichPlayerLabel.text = @"Player O Turn";
+            self.whoseTurnIsIt++;
+
+        }else if (self.whoseTurnIsIt == 2){
+            self.activeLabel.text = @"O";
+            self.whichPlayerLabel.text = @"Player X Turn";
+            self.whoseTurnIsIt--;
+            
+        }
+
+    }
 
 }
 
