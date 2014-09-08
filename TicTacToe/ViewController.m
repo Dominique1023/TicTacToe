@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *labelThree;
@@ -81,32 +81,78 @@
     }
 }
 
+//TicTacToe Game Logic
 -(void)gameLogic{
 
     //Left to Right Wins from top to bottom
     if ([self.labelOne.text isEqualToString:self.labelTwo.text] && [self.labelTwo.text isEqualToString:self.labelThree.text] && ![self.labelOne.text isEqualToString:@""]) {
+        [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
     if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
+        [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
     if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
+        [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
     //Top To Bottom wins from left to right
-
     if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
+        [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
     if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
+        [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
     }
 
-    //3rd row down 
+    if ([self.labelThree.text isEqualToString:self.labelSix.text] && [self.labelSix.text isEqualToString:self.labelNine.text] && ![self.labelThree.text isEqualToString:@""]) {
+        [self winnerwinner];
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    //Diagonal Left to Right
+    if ([self.labelOne.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelNine.text] && ![self.labelOne.text isEqualToString:@""]) {
+        [self winnerwinner];
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+
+    //Diagonal Right to Left
+    if ([self.labelThree.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSeven.text] && ![self.labelThree.text isEqualToString:@""]) {
+        [self winnerwinner];
+        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }
+}
+
+-(void)winnerwinner{
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congrats!" message:[NSString stringWithFormat:@"Player %@ is The Winner", self.activeLabel.text] delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+
+    [alertView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        self.labelOne.text = @"";
+        self.labelTwo.text = @"";
+        self.labelThree.text = @"";
+        self.labelFour.text = @"";
+        self.labelFive.text = @"";
+        self.labelSix.text = @"";
+        self.labelSeven.text = @"";
+        self.labelEight.text = @"";
+        self.labelNine.text = @"";
+
+        if (self.whoseTurnIsIt == 1) {
+            self.whichPlayerLabel.text = @"Player X Turn";
+        }else if(self.whoseTurnIsIt == 2){
+            self.whichPlayerLabel.text = @"Player O Turn";
+        }
+    }
 }
 
 
