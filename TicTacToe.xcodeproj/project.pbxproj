@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9631BB1219BD314E007F07C5 /* TicTacToeHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9631BB1119BD314E007F07C5 /* TicTacToeHelpViewController.m */; };
 		96FC69F319BCDE5A0008B372 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC69F219BCDE5A0008B372 /* Foundation.framework */; };
 		96FC69F519BCDE5A0008B372 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC69F419BCDE5A0008B372 /* CoreGraphics.framework */; };
 		96FC69F719BCDE5A0008B372 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FC69F619BCDE5A0008B372 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9631BB1019BD314E007F07C5 /* TicTacToeHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicTacToeHelpViewController.h; sourceTree = "<group>"; };
+		9631BB1119BD314E007F07C5 /* TicTacToeHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicTacToeHelpViewController.m; sourceTree = "<group>"; };
 		96FC69EF19BCDE5A0008B372 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FC69F219BCDE5A0008B372 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96FC69F419BCDE5A0008B372 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				96FC6A0419BCDE5B0008B372 /* Main.storyboard */,
 				96FC6A0719BCDE5B0008B372 /* ViewController.h */,
 				96FC6A0819BCDE5B0008B372 /* ViewController.m */,
+				9631BB1019BD314E007F07C5 /* TicTacToeHelpViewController.h */,
+				9631BB1119BD314E007F07C5 /* TicTacToeHelpViewController.m */,
 				96FC6A0A19BCDE5B0008B372 /* Images.xcassets */,
 				96FC69F919BCDE5A0008B372 /* Supporting Files */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9631BB1219BD314E007F07C5 /* TicTacToeHelpViewController.m in Sources */,
 				96FC6A0919BCDE5B0008B372 /* ViewController.m in Sources */,
 				96FC6A0319BCDE5B0008B372 /* AppDelegate.m in Sources */,
 				96FC69FF19BCDE5B0008B372 /* main.m in Sources */,
@@ -456,6 +462,7 @@
 				96FC6A2319BCDE5B0008B372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96FC6A2419BCDE5B0008B372 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +471,7 @@
 				96FC6A2619BCDE5B0008B372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

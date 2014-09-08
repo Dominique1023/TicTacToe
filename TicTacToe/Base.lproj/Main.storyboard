@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSz-dE-8gQ" userLabel="labelOne">
-                                <rect key="frame" x="47" y="129" width="70" height="70"/>
+                                <rect key="frame" x="47" y="100" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -28,7 +28,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-Ez-L8M" userLabel="labelTwo">
-                                <rect key="frame" x="125" y="129" width="70" height="70"/>
+                                <rect key="frame" x="125" y="100" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-oh-5SV" userLabel="labelThree">
-                                <rect key="frame" x="203" y="129" width="70" height="70"/>
+                                <rect key="frame" x="203" y="100" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o15-NO-H3p" userLabel="labelFour">
-                                <rect key="frame" x="47" y="207" width="70" height="70"/>
+                                <rect key="frame" x="47" y="178" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfk-cs-42I" userLabel="labelFive">
-                                <rect key="frame" x="125" y="207" width="70" height="70"/>
+                                <rect key="frame" x="125" y="178" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -72,7 +72,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58h-yw-7oK" userLabel="labelSix">
-                                <rect key="frame" x="203" y="207" width="70" height="70"/>
+                                <rect key="frame" x="203" y="178" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEQ-Iz-iY7" userLabel="labelSeven">
-                                <rect key="frame" x="47" y="285" width="70" height="70"/>
+                                <rect key="frame" x="47" y="256" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -94,7 +94,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rc-yk-hae" userLabel="labelEight">
-                                <rect key="frame" x="125" y="285" width="70" height="70"/>
+                                <rect key="frame" x="125" y="256" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -105,7 +105,7 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2c-dH-49f" userLabel="labelNine">
-                                <rect key="frame" x="203" y="285" width="70" height="70"/>
+                                <rect key="frame" x="203" y="256" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -116,15 +116,47 @@
                                 </connections>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player X Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-tu-4Cp" userLabel="whichPlayerLabel">
-                                <rect key="frame" x="47" y="396" width="226" height="42"/>
+                                <rect key="frame" x="47" y="351" width="226" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF6-a4-Vyn" userLabel="whichPlayerLabel">
+                                <rect key="frame" x="47" y="426" width="226" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-xd-vDV">
+                                <rect key="frame" x="243" y="20" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OjH-6v-bTq" kind="modal" id="bUh-NC-ciI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9p-GP-lrX">
+                                <rect key="frame" x="20" y="20" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onResetButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="w5m-D1-BBr"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.57752623175182483" green="0.75" blue="0.75" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.57647058823529407" green="0.6705882352941176" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="t8b-Mn-Z72">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ism-xj-0FX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="labelEight" destination="7Rc-yk-hae" id="zGE-6d-tso"/>
                         <outlet property="labelFive" destination="Zfk-cs-42I" id="7LG-tq-L3G"/>
@@ -135,6 +167,7 @@
                         <outlet property="labelSix" destination="58h-yw-7oK" id="RxQ-Er-Ece"/>
                         <outlet property="labelThree" destination="3Jk-oh-5SV" id="bYf-d2-imH"/>
                         <outlet property="labelTwo" destination="qHX-Ez-L8M" id="0b2-Jx-AM4"/>
+                        <outlet property="timeLabel" destination="vF6-a4-Vyn" id="TVg-Ch-ofl"/>
                         <outlet property="whichPlayerLabel" destination="DaT-tu-4Cp" id="gqb-w3-i64"/>
                     </connections>
                 </viewController>
@@ -185,7 +218,47 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="51" y="6"/>
+            <point key="canvasLocation" x="934" y="6"/>
+        </scene>
+        <!--Tic Tac Toe Help View Controller - Tic Tac Toe Help-->
+        <scene sceneID="CeG-L8-Mw6">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5I6-wN-dbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="OjH-6v-bTq" customClass="TicTacToeHelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SQR-ci-MsG"/>
+                        <viewControllerLayoutGuide type="bottom" id="lJW-mY-EhM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="35L-OU-FlL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-BH-AXs">
+                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.57647058823529407" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4v-n9-Wbw">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="WW6-5c-NZQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57752623179999996" green="0.75" blue="0.75" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tic Tac Toe Help" id="r8c-0j-AeE"/>
+                    <connections>
+                        <outlet property="webView" destination="rWa-BH-AXs" id="dEi-hW-WnD"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1296" y="6"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

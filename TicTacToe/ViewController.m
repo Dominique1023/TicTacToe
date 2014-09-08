@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) UILabel *activeLabel;
 @property NSArray *labels;
 @property int whoseTurnIsIt;
@@ -29,9 +30,31 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 
+    self.timeLabel.hidden = YES;
+
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:147 green:191 blue:191 alpha:0];
+
     self.labels = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
 
     self.whoseTurnIsIt = 1;
+}
+
+- (IBAction)onResetButtonPressed:(id)sender {
+    self.labelOne.text = @"";
+    self.labelTwo.text = @"";
+    self.labelThree.text = @"";
+    self.labelFour.text = @"";
+    self.labelFive.text = @"";
+    self.labelSix.text = @"";
+    self.labelSeven.text = @"";
+    self.labelEight.text = @"";
+    self.labelNine.text = @"";
+
+    if (self.whoseTurnIsIt == 1) {
+        self.whichPlayerLabel.text = @"Player X Turn";
+    }else if(self.whoseTurnIsIt == 2){
+        self.whichPlayerLabel.text = @"Player O Turn";
+    }
 }
 
 -(UILabel *)findLabelUsingPoint:(CGPoint)point{
@@ -88,44 +111,45 @@
     if ([self.labelOne.text isEqualToString:self.labelTwo.text] && [self.labelTwo.text isEqualToString:self.labelThree.text] && ![self.labelOne.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
+    }else
+        if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
+    }else
+        if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    //Top To Bottom wins from left to right
-    if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
+    }//Top To Bottom wins from left to right
+   else
+       if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
+    } else
+        if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    if ([self.labelThree.text isEqualToString:self.labelSix.text] && [self.labelSix.text isEqualToString:self.labelNine.text] && ![self.labelThree.text isEqualToString:@""]) {
+    }else
+        if ([self.labelThree.text isEqualToString:self.labelSix.text] && [self.labelSix.text isEqualToString:self.labelNine.text] && ![self.labelThree.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    //Diagonal Left to Right
-    if ([self.labelOne.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelNine.text] && ![self.labelOne.text isEqualToString:@""]) {
+    }//Diagonal Left to Right
+    else
+        if ([self.labelOne.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelNine.text] && ![self.labelOne.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }
-
-    //Diagonal Right to Left
-    if ([self.labelThree.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSeven.text] && ![self.labelThree.text isEqualToString:@""]) {
+    }//Diagonal Right to Left
+   else
+       if ([self.labelThree.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSeven.text] && ![self.labelThree.text isEqualToString:@""]) {
         [self winnerwinner];
         self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
+    }else
+        if (![self.labelOne.text isEqualToString:@""] && ![self.labelTwo.text isEqualToString:@""] && ![self.labelThree.text isEqualToString:@""]
+        && ![self.labelFour.text isEqualToString:@""] && ![self.labelFive.text isEqualToString:@""] && ![self.labelSix.text isEqualToString:@""]
+        && ![self.labelSeven.text isEqualToString:@""] && ![self.labelEight.text isEqualToString:@""] && ![self.labelNine.text isEqualToString:@""]) {
+
+        UIAlertView *tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+
+        [tieAlertView show];
     }
 }
 
@@ -136,23 +160,12 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex != alertView.cancelButtonIndex) {
-        self.labelOne.text = @"";
-        self.labelTwo.text = @"";
-        self.labelThree.text = @"";
-        self.labelFour.text = @"";
-        self.labelFive.text = @"";
-        self.labelSix.text = @"";
-        self.labelSeven.text = @"";
-        self.labelEight.text = @"";
-        self.labelNine.text = @"";
 
-        if (self.whoseTurnIsIt == 1) {
-            self.whichPlayerLabel.text = @"Player X Turn";
-        }else if(self.whoseTurnIsIt == 2){
-            self.whichPlayerLabel.text = @"Player O Turn";
-        }
-    }
+  if (buttonIndex != alertView.cancelButtonIndex) {
+      [self onResetButtonPressed:self];
+
+   }
+
 }
 
 
