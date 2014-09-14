@@ -115,18 +115,25 @@
                                     <outletCollection property="gestureRecognizers" destination="YJK-sj-w5y" appends="YES" id="iB0-lX-Gfb"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player X Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-tu-4Cp" userLabel="whichPlayerLabel">
-                                <rect key="frame" x="47" y="351" width="226" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaT-tu-4Cp" userLabel="whichPlayerLabel">
+                                <rect key="frame" x="47" y="447" width="110" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF6-a4-Vyn" userLabel="whichPlayerLabel">
-                                <rect key="frame" x="47" y="426" width="226" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvM-WP-yyu" userLabel="Xplayer">
+                                <rect key="frame" x="165" y="412" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="80"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybq-em-uXT" userLabel="OPlayer">
+                                <rect key="frame" x="165" y="412" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.83091925180000004" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="80"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-xd-vDV">
@@ -167,8 +174,9 @@
                         <outlet property="labelSix" destination="58h-yw-7oK" id="RxQ-Er-Ece"/>
                         <outlet property="labelThree" destination="3Jk-oh-5SV" id="bYf-d2-imH"/>
                         <outlet property="labelTwo" destination="qHX-Ez-L8M" id="0b2-Jx-AM4"/>
-                        <outlet property="timeLabel" destination="vF6-a4-Vyn" id="TVg-Ch-ofl"/>
-                        <outlet property="whichPlayerLabel" destination="DaT-tu-4Cp" id="gqb-w3-i64"/>
+                        <outlet property="oPlayerLabel" destination="Ybq-em-uXT" id="cLa-mg-hpv"/>
+                        <outlet property="playerLabel" destination="DaT-tu-4Cp" id="cPK-QY-5Ke"/>
+                        <outlet property="xPlayerLabel" destination="wvM-WP-yyu" id="52K-3W-XHD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -223,7 +231,6 @@
         <!--Tic Tac Toe Help View Controller - Tic Tac Toe Help-->
         <scene sceneID="CeG-L8-Mw6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5I6-wN-dbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="OjH-6v-bTq" customClass="TicTacToeHelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SQR-ci-MsG"/>
@@ -250,13 +257,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.57752623179999996" green="0.75" blue="0.75" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.57647058823529407" green="0.6705882352941176" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tic Tac Toe Help" id="r8c-0j-AeE"/>
                     <connections>
                         <outlet property="webView" destination="rWa-BH-AXs" id="dEi-hW-WnD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5I6-wN-dbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1296" y="6"/>
         </scene>

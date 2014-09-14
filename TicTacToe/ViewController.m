@@ -18,9 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelSeven;
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
-@property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *xPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oPlayerLabel;
 @property (weak, nonatomic) UILabel *activeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playerLabel;
 @property NSArray *labels;
 @property int whoseTurnIsIt;
 @end
@@ -30,7 +31,8 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 
-    self.timeLabel.hidden = YES;
+    self.oPlayerLabel.hidden = YES; 
+
 
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:147 green:191 blue:191 alpha:0];
 
@@ -51,9 +53,9 @@
     self.labelNine.text = @"";
 
     if (self.whoseTurnIsIt == 1) {
-        self.whichPlayerLabel.text = @"Player X Turn";
+        self.xPlayerLabel.hidden = NO;
     }else if(self.whoseTurnIsIt == 2){
-        self.whichPlayerLabel.text = @"Player O Turn";
+        self.oPlayerLabel.hidden = NO;
     }
 }
 
@@ -93,12 +95,14 @@
     }else{
         if (self.whoseTurnIsIt == 1) {
             self.activeLabel.text = @"X";
-            self.whichPlayerLabel.text = @"Player O Turn";
+            self.oPlayerLabel.hidden = NO;
+            self.xPlayerLabel.hidden = YES;
             self.whoseTurnIsIt++;
 
         }else if (self.whoseTurnIsIt == 2){
             self.activeLabel.text = @"O";
-            self.whichPlayerLabel.text = @"Player X Turn";
+            self.xPlayerLabel.hidden = NO;
+            self.oPlayerLabel.hidden = YES;
             self.whoseTurnIsIt--;
         }
     }
@@ -107,49 +111,104 @@
 //TicTacToe Game Logic
 -(void)gameLogic{
 
-    //Left to Right Wins from top to bottom
+    //winner from top to bottom rows
     if ([self.labelOne.text isEqualToString:self.labelTwo.text] && [self.labelTwo.text isEqualToString:self.labelThree.text] && ![self.labelOne.text isEqualToString:@""]) {
         [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }else
-        if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }else
-        if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }//Top To Bottom wins from left to right
-   else
-       if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    } else
-        if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }else
-        if ([self.labelThree.text isEqualToString:self.labelSix.text] && [self.labelSix.text isEqualToString:self.labelNine.text] && ![self.labelThree.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }//Diagonal Left to Right
-    else
-        if ([self.labelOne.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelNine.text] && ![self.labelOne.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }//Diagonal Right to Left
-   else
-       if ([self.labelThree.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSeven.text] && ![self.labelThree.text isEqualToString:@""]) {
-        [self winnerwinner];
-        self.whichPlayerLabel.text = [NSString stringWithFormat:@"Player %@ Wins", self.activeLabel.text];
-    }else
-        if (![self.labelOne.text isEqualToString:@""] && ![self.labelTwo.text isEqualToString:@""] && ![self.labelThree.text isEqualToString:@""]
-        && ![self.labelFour.text isEqualToString:@""] && ![self.labelFive.text isEqualToString:@""] && ![self.labelSix.text isEqualToString:@""]
-        && ![self.labelSeven.text isEqualToString:@""] && ![self.labelEight.text isEqualToString:@""] && ![self.labelNine.text isEqualToString:@""]) {
+        if (self.oPlayerLabel.text == self.activeLabel.text) {
+            self.oPlayerLabel.hidden = NO;
+            self.xPlayerLabel.hidden = YES;
+            self.playerLabel.text = @"Winner";
+        }else if (self.xPlayerLabel.text == self.activeLabel.text){
+            self.xPlayerLabel.hidden = NO;
+            self.oPlayerLabel.hidden = YES;
+            self.playerLabel.text = @"Winner";
+        }
+    }else if ([self.labelFour.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSix.text] && ![self.labelFour.text isEqualToString:@""]) {
+            [self winnerwinner];
 
-        UIAlertView *tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+            if (self.oPlayerLabel.text == self.activeLabel.text) {
+                self.oPlayerLabel.hidden = NO;
+                self.xPlayerLabel.hidden = YES;
+                self.playerLabel.text = @"Winner";
+            }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                self.xPlayerLabel.hidden = NO;
+                self.oPlayerLabel.hidden = YES;
+                self.playerLabel.text = @"Winner";
+            }
 
-        [tieAlertView show];
+        }else if ([self.labelSeven.text isEqualToString:self.labelEight.text] && [self.labelEight.text isEqualToString:self.labelNine.text] && ![self.labelSeven.text isEqualToString:@""]) {
+                [self winnerwinner];
+
+                if (self.oPlayerLabel.text == self.activeLabel.text) {
+                    self.oPlayerLabel.hidden = NO;
+                    self.xPlayerLabel.hidden = YES;
+                }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                    self.xPlayerLabel.hidden = NO;
+                    self.oPlayerLabel.hidden = YES;
+                }
+                    //Winner from left to right columns
+            }else if ([self.labelOne.text isEqualToString:self.labelFour.text] && [self.labelFour.text isEqualToString:self.labelSeven.text] && ![self.labelOne.text isEqualToString:@""]) {
+                    [self winnerwinner];
+
+                    if (self.oPlayerLabel.text == self.activeLabel.text) {
+                       self.oPlayerLabel.hidden = NO;
+                       self.xPlayerLabel.hidden = YES;
+                    }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                       self.xPlayerLabel.hidden = NO;
+                       self.oPlayerLabel.hidden = YES;
+                    }
+
+            } else if ([self.labelTwo.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelEight.text] && ![self.labelTwo.text isEqualToString:@""]) {
+                    [self winnerwinner];
+
+                    if (self.oPlayerLabel.text == self.activeLabel.text) {
+                        self.oPlayerLabel.hidden = NO;
+                        self.xPlayerLabel.hidden = YES;
+                    }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                        self.xPlayerLabel.hidden = NO;
+                        self.oPlayerLabel.hidden = YES;
+                    }
+
+            }else if ([self.labelThree.text isEqualToString:self.labelSix.text] && [self.labelSix.text isEqualToString:self.labelNine.text] && ![self.labelThree.text isEqualToString:@""]) {
+                    [self winnerwinner];
+
+                    if (self.oPlayerLabel.text == self.activeLabel.text) {
+                        self.oPlayerLabel.hidden = NO;
+                        self.xPlayerLabel.hidden = YES;
+                    }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                        self.xPlayerLabel.hidden = NO;
+                        self.oPlayerLabel.hidden = YES;
+                    }
+                    //winner left to right diagonal
+            }else if ([self.labelOne.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelNine.text] && ![self.labelOne.text isEqualToString:@""]) {
+                    [self winnerwinner];
+
+                    if (self.oPlayerLabel.text == self.activeLabel.text) {
+                        self.oPlayerLabel.hidden = NO;
+                        self.xPlayerLabel.hidden = YES;
+                    }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                        self.xPlayerLabel.hidden = NO;
+                        self.oPlayerLabel.hidden = YES;
+                    }
+                    //winner right to left diagonal
+            }else if ([self.labelThree.text isEqualToString:self.labelFive.text] && [self.labelFive.text isEqualToString:self.labelSeven.text] && ![self.labelThree.text isEqualToString:@""]) {
+                    [self winnerwinner];
+
+                       if (self.oPlayerLabel.text == self.activeLabel.text) {
+                           self.oPlayerLabel.hidden = NO;
+                           self.xPlayerLabel.hidden = YES;
+                       }else if (self.xPlayerLabel.text == self.activeLabel.text){
+                           self.xPlayerLabel.hidden = NO;
+                           self.oPlayerLabel.hidden = YES;
+                       }
+                    //no winner, TIE
+            }else if (![self.labelOne.text isEqualToString:@""] && ![self.labelTwo.text isEqualToString:@""] && ![self.labelThree.text isEqualToString:@""]
+                    && ![self.labelFour.text isEqualToString:@""] && ![self.labelFive.text isEqualToString:@""] && ![self.labelSix.text isEqualToString:@""]
+                    && ![self.labelSeven.text isEqualToString:@""] && ![self.labelEight.text isEqualToString:@""] && ![self.labelNine.text isEqualToString:@""]){
+
+                        UIAlertView *tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+
+                        [tieAlertView show];
     }
 }
 
@@ -160,12 +219,9 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-
   if (buttonIndex != alertView.cancelButtonIndex) {
       [self onResetButtonPressed:self];
-
    }
-
 }
 
 
