@@ -19,9 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelEight;
 @property (weak, nonatomic) IBOutlet UILabel *labelNine;
 @property (weak, nonatomic) IBOutlet UILabel *whichPlayerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
+@property BOOL isTimerRunning;
+@property NSTimer *timer;
+@property NSInteger timerCount;
 @property (weak, nonatomic) UILabel *activeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *playerLabel;
 @property NSArray *labels;
 @property int whoseTurnIsIt;
 @end
@@ -39,21 +42,23 @@
 }
 
 - (IBAction)onResetButtonPressed:(id)sender {
-    self.labelOne.text = @"";
-    self.labelTwo.text = @"";
-    self.labelThree.text = @"";
-    self.labelFour.text = @"";
-    self.labelFive.text = @"";
-    self.labelSix.text = @"";
-    self.labelSeven.text = @"";
-    self.labelEight.text = @"";
-    self.labelNine.text = @"";
+    for (UILabel *label in self.labels) {
+        label.text = @"";
+    }
 
     if (self.whoseTurnIsIt == 1) {
-        self.whichPlayerLabel.text = @"X";
+        self.whichPlayerLabel.text = @"Player X";
     }else if(self.whoseTurnIsIt == 2){
-        self.whichPlayerLabel.text = @"O";
+        self.whichPlayerLabel.text = @"Player O";
     }
+
+    self.timerCount = 5;
+    self.timerLabel.text = @"5";
+}
+
+-(void)timerTick{
+    self.timerCount -= 1;
+    self.timerLabel.text = [NSString stringWithFormat:@"%d", self.timerCount];
 }
 
 -(UILabel *)findLabelUsingPoint:(CGPoint)point{
@@ -76,31 +81,10 @@
     [self whoseTurn];
     [self gameLogic];
 
+
 }
 
--(IBAction)theDrag:(UIPanGestureRecognizer *)panGestureRecognizer{
-    CGPoint point = [panGestureRecognizer translationInView:self.view];
 
-    self.whichPlayerLabel.transform = CGAffineTransformMakeTranslation(point.x, point.y);
-
-    point.x = point.x + self.whichPlayerLabel.center.x;
-    point.y += self.whichPlayerLabel.center.y;
-
-    //NSLog(@"x = %f y = %f", self.whichPlayerLabel.center.x, self.whichPlayerLabel.center.y);
-
-    for (UILabel *label in self.labels) {
-        if ([label.text isEqualToString:@""]) {
-            if (CGRectContainsPoint(label.frame, point)) {
-                label.text = self.whichPlayerLabel.text;
-            }
-            if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-                NSLog(@"ended");
-                [self whoseTurn];
-                [self gameLogic];
-            }
-        }
-    }
-}
 
 //Changes the players turn
 -(void)whoseTurn{
@@ -113,13 +97,13 @@
     }else{
         if (self.whoseTurnIsIt == 1) {
             self.activeLabel.text = @"X";
-            self.whichPlayerLabel.text = @"O";
+            self.whichPlayerLabel.text = @"Player O";
 
             self.whoseTurnIsIt++;
 
         }else if (self.whoseTurnIsIt == 2){
             self.activeLabel.text = @"O";
-            self.whichPlayerLabel.text = @"X";
+            self.whichPlayerLabel.text = @"Player X";
 
             self.whoseTurnIsIt--;
             
