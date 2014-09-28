@@ -29,7 +29,8 @@
 @property NSArray *labels;
 @property int whoseTurnIsIt;
 @property UIAlertView *outOfTimeAlertView;
-
+@property UIAlertView *winnerWinnerAlertView;
+@property UIAlertView *tieAlertView;
 
 @end
 
@@ -85,7 +86,7 @@
 
 }
 
-#pragma Mark CLOCK SETTINGS 
+#pragma mark CLOCK SETTINGS
 -(void)startTimer{
     if (self.isTimerRunning == false) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:YES];
@@ -124,6 +125,7 @@
 }
 
 //Changes the players turn
+#pragma mark GAME FUNCTIONALITY
 -(void)whoseTurn{
     //1 = X : 2 = Y
 
@@ -153,24 +155,11 @@
 }
 
 -(void)winnerwinner{
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congrats!" message:[NSString stringWithFormat:@"Player %@ is The Winner", self.activeLabel.text] delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+    [self stopTheClock];
 
-    [alertView show];
-}
+    self.winnerWinnerAlertView = [[UIAlertView alloc]initWithTitle:@"Congrats!" message:[NSString stringWithFormat:@"Player %@ is The Winner", self.activeLabel.text] delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-
-    if (buttonIndex != alertView.cancelButtonIndex) {
-        [self onResetButtonPressed:self];
-        [self restartTheClock];
-    }
-
-    if (alertView == self.outOfTimeAlertView) {
-        if (buttonIndex == alertView.cancelButtonIndex) {
-            [self restartTheClock];
-
-        }
-    }
+    [self.winnerWinnerAlertView show];
 }
 
 //TicTacToe Game Logic
@@ -227,9 +216,31 @@
               && ![self.labelFour.text isEqualToString:@""] && ![self.labelFive.text isEqualToString:@""] && ![self.labelSix.text isEqualToString:@""]
               && ![self.labelSeven.text isEqualToString:@""] && ![self.labelEight.text isEqualToString:@""] && ![self.labelNine.text isEqualToString:@""]){
 
-        UIAlertView *tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
 
-        [tieAlertView show];
+        self.tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
+        
+        [self.tieAlertView show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView == self.winnerWinnerAlertView) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            [self onResetButtonPressed:self];
+            [self restartTheClock];
+        }
+    }
+
+    if (alertView == self.outOfTimeAlertView) {
+        if (buttonIndex == alertView.cancelButtonIndex) {
+            [self restartTheClock];
+
+        }
+    }
+
+    if (alertView == self.tieAlertView) {
+        [self restartTheClock];
+        [self onResetButtonPressed:self]; 
     }
 }
 
