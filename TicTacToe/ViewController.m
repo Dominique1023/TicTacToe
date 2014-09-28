@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#define time 3;
 
 @interface ViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
@@ -27,6 +28,9 @@
 @property (weak, nonatomic) UILabel *activeLabel;
 @property NSArray *labels;
 @property int whoseTurnIsIt;
+@property UIAlertView *outOfTimeAlertView;
+
+
 @end
 
 @implementation ViewController
@@ -38,10 +42,11 @@
 
     self.labels = [[NSArray alloc]initWithObjects:self.labelOne, self.labelTwo, self.labelThree, self.labelFour, self.labelFive, self.labelSix, self.labelSeven, self.labelEight, self.labelNine, nil];
 
+    self.timerCount = 1;
     self.whoseTurnIsIt = 1;
 }
 
-- (IBAction)onResetButtonPressed:(id)sender {
+-(IBAction)onResetButtonPressed:(id)sender {
     for (UILabel *label in self.labels) {
         label.text = @"";
     }
@@ -52,13 +57,8 @@
         self.whichPlayerLabel.text = @"Player O";
     }
 
-    self.timerCount = 5;
-    self.timerLabel.text = @"5";
-}
-
--(void)timerTick{
-    self.timerCount -= 1;
-    self.timerLabel.text = [NSString stringWithFormat:@"%d", self.timerCount];
+    self.timerCount = time;
+    self.timerLabel.text = @"3";
 }
 
 -(UILabel *)findLabelUsingPoint:(CGPoint)point{
@@ -72,6 +72,8 @@
 }
 
 -(IBAction)onLabelTapped:(UITapGestureRecognizer *)tapGestureRecognizer{
+    [self startTimer];
+
     //creating a point tapped on the label
     CGPoint tapped = [tapGestureRecognizer locationInView:self.view];
 
@@ -81,10 +83,45 @@
     [self whoseTurn];
     [self gameLogic];
 
+}
+
+#pragma Mark CLOCK SETTINGS 
+-(void)startTimer{
+    if (self.isTimerRunning == false) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick) userInfo:nil repeats:YES];
+        self.isTimerRunning = true;
+    }
+}
+
+-(void)timerTick{
+    if (self.timerCount == 1) {
+
+
+        [self stopTheClock];
+
+        self.outOfTimeAlertView = [[UIAlertView alloc]initWithTitle:@"Out of Time!" message:[NSString stringWithFormat:@"Next Player"] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+
+        [self.outOfTimeAlertView show];
+    }
+
+    if (self.timerCount > 1) {
+        self.timerCount -= 1;
+        self.timerLabel.text = [NSString stringWithFormat:@"%ld", (long)self.timerCount];
+    }
+
 
 }
 
+-(void)stopTheClock{
+    self.timerCount = 4;
+    [self.timer invalidate];
+    self.isTimerRunning = false;
+}
 
+-(void)restartTheClock{
+    self.timerCount = time;
+    self.timerLabel.text = @"3";
+}
 
 //Changes the players turn
 -(void)whoseTurn{
@@ -98,19 +135,22 @@
         if (self.whoseTurnIsIt == 1) {
             self.activeLabel.text = @"X";
             self.whichPlayerLabel.text = @"Player O";
+            self.timerCount = time;
+            self.timerLabel.text = [NSString stringWithFormat:@"%ld", (long)self.timerCount];
 
             self.whoseTurnIsIt++;
 
         }else if (self.whoseTurnIsIt == 2){
             self.activeLabel.text = @"O";
             self.whichPlayerLabel.text = @"Player X";
+            self.timerCount = time;
+            self.timerLabel.text = [NSString stringWithFormat:@"%ld", (long)self.timerCount];
 
             self.whoseTurnIsIt--;
             
         }
     }
 }
-
 
 -(void)winnerwinner{
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Congrats!" message:[NSString stringWithFormat:@"Player %@ is The Winner", self.activeLabel.text] delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
@@ -120,11 +160,17 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
-  if (buttonIndex != alertView.cancelButtonIndex) {
-      [self onResetButtonPressed:self];
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        [self onResetButtonPressed:self];
+        [self restartTheClock];
+    }
 
-   }
+    if (alertView == self.outOfTimeAlertView) {
+        if (buttonIndex == alertView.cancelButtonIndex) {
+            [self restartTheClock];
 
+        }
+    }
 }
 
 //TicTacToe Game Logic
