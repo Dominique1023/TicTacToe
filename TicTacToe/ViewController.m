@@ -58,8 +58,7 @@
         self.whichPlayerLabel.text = @"Player O";
     }
 
-    self.timerCount = time;
-    self.timerLabel.text = @"3";
+    [self restartTheClock];
 }
 
 -(UILabel *)findLabelUsingPoint:(CGPoint)point{
@@ -216,7 +215,7 @@
               && ![self.labelFour.text isEqualToString:@""] && ![self.labelFive.text isEqualToString:@""] && ![self.labelSix.text isEqualToString:@""]
               && ![self.labelSeven.text isEqualToString:@""] && ![self.labelEight.text isEqualToString:@""] && ![self.labelNine.text isEqualToString:@""]){
 
-
+        [self stopTheClock];
         self.tieAlertView = [[UIAlertView alloc]initWithTitle:@"TIE!" message:@"No Winner, Try Again!" delegate:self cancelButtonTitle:@"Great" otherButtonTitles:@"Play Again", nil];
         
         [self.tieAlertView show];
@@ -235,12 +234,28 @@
         if (buttonIndex == alertView.cancelButtonIndex) {
             [self restartTheClock];
 
+            //switches the player turn as soon as the timer runs out
+
+            if (self.whoseTurnIsIt == 2) {
+                self.whoseTurnIsIt = 1;
+                self.whichPlayerLabel.text = @"Player X";
+                [self whoseTurnIsIt];
+
+            }else{
+                self.whoseTurnIsIt = 2;
+                self.whichPlayerLabel.text = @"Player O";
+                [self whoseTurnIsIt];
+            }
+
+            }
         }
-    }
+
 
     if (alertView == self.tieAlertView) {
         [self restartTheClock];
-        [self onResetButtonPressed:self]; 
+        [self onResetButtonPressed:self];
+
+
     }
 }
 
